@@ -1,0 +1,15 @@
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\bin\Debug\net7.0\PlatformIOHelper.exe
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\bin\Debug\net7.0\PlatformIOHelper.deps.json
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\bin\Debug\net7.0\PlatformIOHelper.runtimeconfig.json
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\bin\Debug\net7.0\PlatformIOHelper.dll
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\bin\Debug\net7.0\PlatformIOHelper.pdb
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.csproj.AssemblyReference.cache
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.GeneratedMSBuildEditorConfig.editorconfig
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.AssemblyInfoInputs.cache
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.AssemblyInfo.cs
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.csproj.CoreCompileInputs.cache
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.dll
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\refint\PlatformIOHelper.dll
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.pdb
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\PlatformIOHelper.genruntimeconfig.cache
+D:\source\repos\PockyBum522 Github\my-platformio-tools\PlatformIOHelper\obj\Debug\net7.0\ref\PlatformIOHelper.dll
