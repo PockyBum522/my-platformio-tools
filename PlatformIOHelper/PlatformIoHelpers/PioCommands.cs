@@ -25,16 +25,42 @@ public class PioCommands
             WorkingDirectory = _projectPath,
             FileName = pioExecutablePath,
             Arguments = argumentsAsString,
-            UseShellExecute = true,
-            CreateNoWindow = true
+            UseShellExecute = false,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true  
         };
 
-        var uploadProcess = Process.Start(processStartInfo);
+        var uploadProcess = new Process()
+        {
+            StartInfo = processStartInfo
+        };
 
         if (uploadProcess is null) throw new NullReferenceException();
 
-        uploadProcess.WaitForExit();
+        Console.WriteLine($"Starting: pio {argumentsAsString}");
+        Console.WriteLine();
+        Console.WriteLine();
         
+        uploadProcess.Start();
+        
+        while (!uploadProcess.HasExited)
+        {
+            var outLine = uploadProcess.StandardOutput.ReadLine();
+            
+            // There are deadlock conditions if you try to read both stdoutput and stderr one and then the other from the process.
+            // https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.redirectstandardoutput?view=net-7.0
+            
+            //var errorLine = uploadProcess.StandardError.ReadLine();
+            
+            Console.WriteLine(outLine);
+            //Console.WriteLine($"ERR: {errorLine}");
+        }
+
+        Console.WriteLine();
+        Console.WriteLine();
+
+        Console.WriteLine("Finished!");
+
         Console.WriteLine();
         Console.WriteLine();
     }
