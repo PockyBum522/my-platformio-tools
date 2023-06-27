@@ -39,21 +39,19 @@ public class PioCommands
 
         Console.WriteLine($"Starting: pio {argumentsAsString}");
         Console.WriteLine();
+        Console.WriteLine($"ON PROJECT: {_projectPath}");
         Console.WriteLine();
         
         uploadProcess.Start();
         
         while (!uploadProcess.HasExited)
         {
-            var outLine = uploadProcess.StandardOutput.ReadLine();
-            
-            // There are deadlock conditions if you try to read both stdoutput and stderr one and then the other from the process.
-            // https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.redirectstandardoutput?view=net-7.0
-            
-            //var errorLine = uploadProcess.StandardError.ReadLine();
-            
-            Console.WriteLine(outLine);
-            //Console.WriteLine($"ERR: {errorLine}");
+            if (Console.KeyAvailable)
+                if (Console.ReadKey(true).Key == ConsoleKey.Escape)
+                    break;
+
+            // We don't want to block with this
+            ReadLineIfAvailable(uploadProcess);
         }
 
         Console.WriteLine();
@@ -63,5 +61,18 @@ public class PioCommands
 
         Console.WriteLine();
         Console.WriteLine();
+    }
+
+    private async Task ReadLineIfAvailable(Process uploadProcess)
+    {
+        var outLine = uploadProcess.StandardOutput.ReadLine();
+            
+        // There are deadlock conditions if you try to read both stdoutput and stderr one and then the other from the process.
+        // https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.processstartinfo.redirectstandardoutput?view=net-7.0
+            
+        //var errorLine = uploadProcess.StandardError.ReadLine();
+            
+        Console.WriteLine(outLine);
+        //Console.WriteLine($"ERR: {errorLine}");
     }
 }

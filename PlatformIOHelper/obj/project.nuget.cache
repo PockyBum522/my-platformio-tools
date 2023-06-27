@@ -1,8 +1,22 @@
 {
   "version": 2,
-  "dgSpecHash": "dJ9CicoYIPZD2DLia4LeLP3mdSGB083x1LtzktHqKLQWAY6nC1+kfBzOE9PzWw/IEa4+3WYWC5BHS7ZbjcZkbw==",
+  "dgSpecHash": "F8cNQvgMvI7U4joKiDTL8nEjoaRLbXn4w2sBBTUNUW3o3ahmQr5QC3ZoQy4mo5Jxh/vq2BGd1pundiUsTz+o2A==",
   "success": true,
   "projectFilePath": "D:\\source\\repos\\PockyBum522 Github\\my-platformio-tools\\PlatformIOHelper\\PlatformIOHelper.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\David\\.nuget\\packages\\castle.core\\5.0.0\\castle.core.5.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\config.net\\5.1.5\\config.net.5.1.5.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.configuration.configurationmanager\\6.0.0\\system.configuration.configurationmanager.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.diagnostics.eventlog\\6.0.0\\system.diagnostics.eventlog.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.drawing.common\\6.0.0\\system.drawing.common.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.security.accesscontrol\\6.0.0\\system.security.accesscontrol.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.security.cryptography.protecteddata\\6.0.0\\system.security.cryptography.protecteddata.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.security.permissions\\6.0.0\\system.security.permissions.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.text.encodings.web\\6.0.0\\system.text.encodings.web.6.0.0.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.text.json\\6.0.5\\system.text.json.6.0.5.nupkg.sha512",
+    "C:\\Users\\David\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

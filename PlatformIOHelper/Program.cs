@@ -1,4 +1,6 @@
-﻿using PlatformIOHelper.ConsoleInteractions;
+﻿using Config.Net;
+using PlatformIOHelper.ConsoleInteractions;
+using PlatformIOHelper.Interfaces;
 using PlatformIOHelper.PlatformIoHelpers;
 
 namespace PlatformIOHelper;
@@ -8,15 +10,16 @@ public class Program
     private static readonly ConsoleMenuUserInteractor ConsoleMenuUserInteractor = new();
     private static readonly PioInstallManager PioInstallManager = new(ConsoleMenuUserInteractor);
     
-    private static PioCommands? PioCommands;
+    private static PioCommands? _pioCommands;
+    private static readonly ISettingsApplicationLocal SettingsApplicationLocal = InitializeApplicationConfiguration();
 
     public static async Task Main()
     {
         await PioInstallManager.CheckPioInstallation();
         
-        var projectPath = GetProjectPathFromUser();
+        SettingsApplicationLocal.LastProjectDirectory = GetProjectPathFromUser(SettingsApplicationLocal.LastProjectDirectory);
         
-        PioCommands = new(PioInstallManager, projectPath);
+        _pioCommands = new(PioInstallManager, SettingsApplicationLocal.LastProjectDirectory);
         
         while (true)
         {
@@ -27,12 +30,27 @@ public class Program
         
         // ReSharper disable once FunctionNeverReturns because it's not supposed to
     }
-
-    private static string GetProjectPathFromUser()
+    
+    private static ISettingsApplicationLocal InitializeApplicationConfiguration()
+    {
+        return 
+            new ConfigurationBuilder<ISettingsApplicationLocal>()
+                .UseIniFile(@"C:\users\public\public documents\pio-helper-settings.ini")
+                .Build();
+    }
+    
+    private static string GetProjectPathFromUser(string lastProjectDirectory)
     {
         Console.WriteLine(MenuContents.SetProjectPrompt);
+
+        Console.Write($"[ {lastProjectDirectory} ]: ");
         
-        return Console.ReadLine() ?? "";
+        var userResponse = Console.ReadLine() ?? lastProjectDirectory;
+
+        if (string.IsNullOrWhiteSpace(userResponse))
+            userResponse = lastProjectDirectory;
+
+        return userResponse;
     }
 
     private static char PromptUserWithMainMenu()
@@ -45,21 +63,21 @@ public class Program
     
     private static void HandleLaunchingSelectedOption(char userKeyResponse)
     {
-        if (PioCommands is null) throw new NullReferenceException();
+        if (_pioCommands is null) throw new NullReferenceException();
         
         switch (userKeyResponse)
         {
             case '1':
-                PioCommands.RunPioExecutableWithArgs("run --target upload");
+                _pioCommands.RunPioExecutableWithArgs("run --target upload");
                 break;
 
             case '2':
                 // Show all com ports on system with extra info to user
-                PioCommands.RunPioExecutableWithArgs("device list");            
+                _pioCommands.RunPioExecutableWithArgs("device list");            
                 
                 Console.WriteLine("Serial monitor attempting connection to COM port...");
                 
-                PioCommands.RunPioExecutableWithArgs("device monitor -b 115200");
+                _pioCommands.RunPioExecutableWithArgs("device monitor -b 115200");
                 break;
             
             case '0':
